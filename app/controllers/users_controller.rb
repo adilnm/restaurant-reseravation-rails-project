@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    reset_session
+    redirect_to login_path
+  end
+
   private
     def user_params
       params.require(:user).permit(:name, :age, :email, :phone, :password)
