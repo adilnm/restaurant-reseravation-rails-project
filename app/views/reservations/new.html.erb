@@ -1,0 +1,10 @@
+<%=form_for @reservation do |f|%>
+<%=f.hidden_field :user_id%>
+<%=f.label :date%>
+<%=f.date_field :date%>
+<%=f.label :time%>
+<%=f.time_field :time%>
+<%=f.label :restaurant%>
+<%=f.collection_select(:restaurant_id, Restaurant.all, :id, :name)%>
+<%=f.submit%>
+<%end%>
