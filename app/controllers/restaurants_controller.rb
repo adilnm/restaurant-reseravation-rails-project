@@ -1,4 +1,17 @@
-class RestaurantsController < ApplicationController
+require 'romato'
+
+class ResstaurantsController < ApplicationController
+  def location
+
+  end
+
+  def city
+    zomato_instance = Romato::Zomato.new("c4a2f8a916b0059bb5fa24b1ac0aba1a")
+    z=zomato_instance.get_cities( {q: "seattle", count: 30} )
+    binding.pry
+  end
+
+
   def new
     @restaurant=Restaurant.new
   end

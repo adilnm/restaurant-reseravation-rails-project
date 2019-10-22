@@ -4,6 +4,8 @@
 <%=f.date_field :date%>
 <%=f.label :time%>
 <%=f.time_field :time%>
+<%=f.label :number_of_people%>
+<%=f.number_field :number_of_people%>
 <%=f.label :restaurant%>
 <%=f.collection_select(:restaurant_id, Restaurant.all, :id, :name)%>
 <%=f.submit%>
