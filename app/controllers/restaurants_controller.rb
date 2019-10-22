@@ -1,13 +1,13 @@
-require 'romato'
 
-class ResstaurantsController < ApplicationController
+class RestaurantsController < ApplicationController
   def location
 
   end
 
   def city
-    zomato_instance = Romato::Zomato.new("c4a2f8a916b0059bb5fa24b1ac0aba1a")
-    z=zomato_instance.get_cities( {q: "seattle", count: 30} )
+    @api_key="c4a2f8a916b0059bb5fa24b1ac0aba1a"
+    zomato_cities_url="https://developers.zomato.com/api/v2.1/cities?q=#{params[:city]}"
+    response = HTTParty.get(zomato_cities_url, headers: {"Accept" => "application/JSON", "user-key" => @api_key})
     binding.pry
   end
 
