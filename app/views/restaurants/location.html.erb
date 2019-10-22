@@ -2,3 +2,10 @@
 <%=label_tag 'City'%>
 <%=text_field_tag 'city'%>
 <%=submit_tag%>
+<%if @response%>
+<ul>
+  <%@response['location_suggestions'].each do |r|%>
+  <li><%=r['name']%></li>
+  <%end%>
+</ul>
+<%end%>

@@ -7,8 +7,9 @@ class RestaurantsController < ApplicationController
   def city
     @api_key="c4a2f8a916b0059bb5fa24b1ac0aba1a"
     zomato_cities_url="https://developers.zomato.com/api/v2.1/cities?q=#{params[:city]}"
-    response = HTTParty.get(zomato_cities_url, headers: {"Accept" => "application/JSON", "user-key" => @api_key})
-    binding.pry
+    @response = HTTParty.get(zomato_cities_url, headers: {"Accept" => "application/JSON", "user-key" => @api_key})
+    # @r=@response['location_suggestions'][0]['name']
+    render 'location'
   end
 
 
