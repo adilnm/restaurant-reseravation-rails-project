@@ -2,10 +2,19 @@
 <%=label_tag 'City'%>
 <%=text_field_tag 'city'%>
 <%=submit_tag%>
+<br>
 <%if @response%>
-<ul>
+<select id="name" name="name">
   <%@response['location_suggestions'].each do |r|%>
-  <li><%=r['name']%></li>
+  <option value=<%=r['id']%>><%=r['name']%></option>
   <%end%>
-</ul>
+</select>
+
+<%elsif (@restau)%>
+<select id="restau" name="resta">
+  <%@restau['restaurants'].each do |r|%>
+  <option value=<%=r['restaurant']['name']%>><%=r['restaurant']['name']%></option>
+  <%end%>
+</select>
+
 <%end%>
