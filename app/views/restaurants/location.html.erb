@@ -4,17 +4,13 @@
 <%=submit_tag%>
 <br>
 <%if @response%>
-<select id="name" name="name">
-  <%@response['location_suggestions'].each do |r|%>
-  <option value=<%=r['id']%>><%=r['name']%></option>
-  <%end%>
-</select>
+  <%=select_tag 'city_id', options_for_select(@response['location_suggestions'].collect{|r| [r['name'],r['id']]})%>
+
+<%elsif (@cuisine)%>
+  <%=select_tag 'cuisine_id', options_for_select(@cuisine['cuisines'].collect{|r| [r['cuisine']['cuisine_name'],r['cuisine']['cuisine_id']]})%>
+  <%=hidden_field_tag 'citi_id', @city_id%>
 
 <%elsif (@restau)%>
-<select id="restau" name="resta">
-  <%@restau['restaurants'].each do |r|%>
-  <option value=<%=r['restaurant']['name']%>><%=r['restaurant']['name']%></option>
-  <%end%>
-</select>
+<%=select_tag 'restau_id', options_for_select(@restau['restaurants'].collect{|r| [r['restaurant']['name'],r['restaurant']['id']]})%>
 
 <%end%>

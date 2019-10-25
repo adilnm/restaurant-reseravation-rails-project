@@ -9,12 +9,19 @@ class RestaurantsController < ApplicationController
       zomato_cities_url="https://developers.zomato.com/api/v2.1/cities?q=#{params[:city]}"
       @response = HTTParty.get(zomato_cities_url, headers: {"Accept" => "application/JSON", "user-key" => @api_key})
       render 'location'
-    else
-      zomato_restau_url="https://developers.zomato.com/api/v2.1/search?entity_id=#{params[:name]}&entity_type=city"
+
+    elsif params[:city_id] && !params[:city_id].empty?
+      cuisine_url="https://developers.zomato.com/api/v2.1/cuisines?city_id=#{params[:city_id]}"
+      @cuisine=HTTParty.get(cuisine_url, headers: {"Accept" => "application/JSON", "user-key" => @api_key})
+      @city_id=params[:city_id]
+      render 'location'
+
+    elsif params[:cuisine_id] && !params[:cuisine_id].empty?
+      zomato_restau_url="https://developers.zomato.com/api/v2.1/search?entity_id=#{params[:citi_id]}&entity_type=city&cuisines=#{params[:cuisine_id]}"
       @restau=HTTParty.get(zomato_restau_url, headers: {"Accept" => "application/JSON", "user-key" => @api_key})
       render 'location'
-    end
 
+    end
   end
 
   def list
