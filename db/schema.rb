@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_043829) do
+ActiveRecord::Schema.define(version: 2019_10_25_072806) do
+
+  create_table "new_columns", force: :cascade do |t|
+  end
 
   create_table "reservations", force: :cascade do |t|
     t.date "date"
@@ -24,10 +27,12 @@ ActiveRecord::Schema.define(version: 2019_10_21_043829) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
-    t.string "category"
+    t.string "cuisine"
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "rating"
+    t.string "phone_number"
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -11,6 +11,7 @@
   <%=hidden_field_tag 'citi_id', @city_id%>
 
 <%elsif (@restau)%>
-<%=select_tag 'restau_id', options_for_select(@restau['restaurants'].collect{|r| [r['restaurant']['name'],r['restaurant']['id']]})%>
-
+  <%=select_tag 'restau_id', options_for_select(@restau['restaurants'].collect{|r| [r['restaurant']['name'],r['restaurant']['id']]})%>
+  <%=hidden_field_tag 'cityid', @city_id%>
+  <%=hidden_field_tag 'cuisineid', @cuisine_id%>
 <%end%>
