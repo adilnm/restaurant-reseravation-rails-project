@@ -2,4 +2,18 @@
 <h2>Cuisine: <%=@restaurant.cuisine%></h2>
 <h2>Address: <%=@restaurant.address%></h2>
 <h2>Phone number: <%=@restaurant.phone_number%></h2>
-<h2>Rating: <%=@restaurant.rating%></h2>
+<h2>Rating: <%=@restaurant.rating%>/5</h2>
+
+<h1>Make a reservation</h1>
+
+<%=form_for @reservation do |f|%>
+<%=f.hidden_field :user_id%>
+<%=f.label :date%>
+<%=f.date_field :date%>
+<%=f.label :time%>
+<%=f.time_field :time%>
+<%=f.label :number_of_people%>
+<%=f.number_field :number_of_people%>
+<%=f.hidden_field :restaurant_id%>
+<%=f.submit%>
+<%end%>

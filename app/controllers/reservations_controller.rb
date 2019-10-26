@@ -14,12 +14,11 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     @reservation=Reservation.new(reservation_params)
     if @reservation.save
       redirect_to user_reservation_path(current_user,@reservation)
     else
-      render :new
+      raise params.inspect
     end
   end
 
