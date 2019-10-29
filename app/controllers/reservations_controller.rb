@@ -1,5 +1,7 @@
 class ReservationsController < ApplicationController
 
+  before_action :require_login
+
   def index
       @user=current_user
       @reservations=@user.reservations
@@ -18,7 +20,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to user_reservation_path(current_user,@reservation)
     else
-      raise params.inspect
+      # raise params.inspect
     end
   end
 

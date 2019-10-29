@@ -1,5 +1,7 @@
-
 class RestaurantsController < ApplicationController
+
+  before_action :require_login
+
   def location
   end
 
@@ -44,11 +46,6 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def list
-
-    redirect_to restaurants_path
-  end
-
 
   def new
     @restaurant=Restaurant.new
@@ -67,7 +64,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant=Restaurant.find(params[:id])
     @reservation=Reservation.new(user_id:current_user.id, restaurant_id:@restaurant.id)
-    binding.pry
+    @reviews=@restaurant.reviews
   end
 
 private

@@ -17,3 +17,10 @@
 <%=f.hidden_field :restaurant_id%>
 <%=f.submit%>
 <%end%>
+
+<h1>Comments:</h1>
+<ul>
+  <%@reviews.each do |review|%>
+  <li><%=review.content%></li>
+  <%end%>
+</ul>
