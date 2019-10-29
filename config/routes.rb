@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :reviews
+
   resources :users do resources :reservations
   end
   resources :reservations
-  resources :restaurants
+  resources :restaurants do resources :reviews
+  end
   root 'users#new'
 
   get 'login' => "sessions#new"
