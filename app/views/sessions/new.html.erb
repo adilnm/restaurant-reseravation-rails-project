@@ -1,18 +1,18 @@
 <div class="limiter">
-    <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+    <div class="container-login100" style="background-image: url('images/login_pic.jpg');">
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
             <span class="login100-form-title p-b-49">
-  						  Login
+  						  LOGIN
   					</span>
             <%=form_for @user, url: sessions_path do |f|%>
                 <div class="wrap-input100 validate-input m-b-23">
                     <%=f.label :name, :class=>"label-input100"%>
-                    <%=f.text_field :name, :class=>"input100"%>
+                    <%=f.text_field :name, :class=>"input100", placeholder: "Type your username"%>
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
                 </div>
                 <div class="wrap-input100 validate-input" >
                     <%=f.label :password, :class=>"label-input100"%>
-                    <%=f.password_field :password, :class=>"input100"%>
+                    <%=f.password_field :password, :class=>"input100", placeholder: "Type your password"%>
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
                 <div class="container-login100-form-btn p-t-54">
