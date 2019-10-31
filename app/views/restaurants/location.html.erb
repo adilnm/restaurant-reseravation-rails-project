@@ -1,17 +1,30 @@
-<%=form_tag('/locations')%>
-<%=label_tag 'City'%>
-<%=text_field_tag 'city'%>
-<%=submit_tag%>
-<br>
-<%if @response%>
-  <%=select_tag 'city_id', options_for_select(@response['location_suggestions'].collect{|r| [r['name'],r['id']]})%>
+<div style="background-image: url('images/location.jpg');">
+  <div class="p-l-55 p-r-55 p-t-65 p-b-54">
+    <%=form_tag('/locations')%>
+    <div class="city validate-input m-b-23">
+    <%=label_tag 'City'%>
+    <%=text_field_tag 'city',"", class: "city_box", placeholder: "Type a city"%>
+    </div>
+    <div class="wrap-login100-form-btn">
+      <div class="login100-form-bgbtn"></div>
+    <button class="login100-form-btn">
+    <%=submit_tag 'Submit',class: 'btn'%>
+    </button>
+    </div>
+    <br>
+    <%if @response%>
+      <h3>Please select a city:</h3>
+      <%=select_tag 'city_id', options_for_select(@response['location_suggestions'].collect{|r| [r['name'],r['id']]})%>
+    <%elsif (@cuisine)%>
+    <h3>Please select a type of cuisine:</h3>
+      <%=select_tag 'cuisine_id', options_for_select(@cuisine['cuisines'].collect{|r| [r['cuisine']['cuisine_name'],r['cuisine']['cuisine_id']]})%>
+      <%=hidden_field_tag 'citi_id', @city_id%>
 
-<%elsif (@cuisine)%>
-  <%=select_tag 'cuisine_id', options_for_select(@cuisine['cuisines'].collect{|r| [r['cuisine']['cuisine_name'],r['cuisine']['cuisine_id']]})%>
-  <%=hidden_field_tag 'citi_id', @city_id%>
-
-<%elsif (@restau)%>
-  <%=select_tag 'restau_id', options_for_select(@restau['restaurants'].collect{|r| [r['restaurant']['name'],r['restaurant']['id']]})%>
-  <%=hidden_field_tag 'cityid', @city_id%>
-  <%=hidden_field_tag 'cuisineid', @cuisine_id%>
-<%end%>
+    <%elsif (@restau)%>
+    <h3>Please select a restaurant:</h3>
+      <%=select_tag 'restau_id', options_for_select(@restau['restaurants'].collect{|r| [r['restaurant']['name'],r['restaurant']['id']]})%>
+      <%=hidden_field_tag 'cityid', @city_id%>
+      <%=hidden_field_tag 'cuisineid', @cuisine_id%>
+    <%end%>
+    </div>
+</div>

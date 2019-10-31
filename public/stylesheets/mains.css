@@ -182,7 +182,7 @@ iframe {
 
 .wrap-login100 {
   width: 500px;
-  background: #fff;
+  background: rgb(255,255,255, .8);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -473,4 +473,51 @@ iframe {
     padding-left: 15px;
     padding-right: 15px;
   }
+}
+
+.reservation-box {
+  border-radius: 5px;
+  margin: 20px;
+  position: relative;
+  opacity:0.8;
+  background: #ff6666;
+  text-align: center;
+  border: 1px solid silver;
+  padding: 25px 15px;
+  margin-bottom: 45px;
+}
+
+.reservations-container {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.city {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid #d9d9d9;
+}
+.city_box {
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.2;
+
+  display: block;
+  width: 100%;
+  height: 55px;
+  /* background: transparent; */
+  padding: 0 7px 0 43px;
+  border: 2px solid #d9d9d9;
+  box-shadow: 3px 3px 5px grey;;
 }
