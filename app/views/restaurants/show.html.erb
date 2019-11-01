@@ -1,6 +1,6 @@
-<div class="container-login100" style="background-image: url('images/restaurant.jpg');">
-    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-        <h1><%=@restaurant.name%></h1>
+<div class="container-login100" style="background-image: url('/images/restaurant.jpg');">
+    <div class="restau p-l-55 p-r-55 p-t-65 p-b-54">
+        <h1 style="text-align: center;"><b><%=@restaurant.name%></b></h1>
         <h2>Cuisine: <%=@restaurant.cuisine%></h2>
         <h2>Address: <%=@restaurant.address%></h2>
         <h2>Phone number: <%=@restaurant.phone_number%></h2>
@@ -21,9 +21,10 @@
         <%end%>
 
         <h1>Comments:</h1>
-        <ul>
+        <%=link_to 'Make a review', new_restaurant_review_path(@restaurant)%>
+        <ul class="list-group list-group-flush">
           <%@reviews.each do |review|%>
-          <li><%=review.content%></li>
+          <li class="list-group-item list-group-item-secondary"><%=review.content%></li>
           <%end%>
         </ul>
     </div>

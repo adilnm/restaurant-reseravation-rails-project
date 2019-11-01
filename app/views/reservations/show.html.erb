@@ -1,4 +1,9 @@
-<b>Restaurant name:</b> <%=@reservation.restaurant.name%><br>
-<b>Reservation date:</b> <%=@reservation.date.strftime('%a, %b %e %Y')%><br>
-<b>Reservation time:</b><%=@reservation.time.strftime('%H:%M%p')%><br>
-<b>Number of people: </b><%=@reservation.number_of_people%>
+<div class="container-login100" style="background-image: url('/images/reservations.jpg');">
+    <div class="restau p-l-55 p-r-55 p-t-65 p-b-54">
+      <a href="/restaurants/<%=@reservation.restaurant.id%>"><h1 style="text-align: center;"><b><%=@reservation.restaurant.name%> Reservation</b></h1></a>
+      <h2><b>Date:</b> <%=@reservation.date.strftime('%a, %b %e %Y')%></h2>
+      <h2><b>Time:</b><%=@reservation.time.strftime('%H:%M%p')%></h2>
+      <h2><b>Address:</b> <%=@reservation.restaurant.address%></h2>
+      <h2><b>Number of people: </b><%=@reservation.number_of_people%></h2>
+    </div>
+</div>
