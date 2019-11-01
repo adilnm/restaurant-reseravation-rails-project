@@ -1,0 +1,16 @@
+<div class="container-login100" style="background-image: url('/images/reservations.jpg');">
+    <div class="restau p-l-55 p-r-55 p-t-65 p-b-54">
+      <h1 style="text-align: center;"><b>Edit <%=@reservation.restaurant.name%> Reservation</b></h1>
+        <%=form_for @reservation do |f|%>
+        <%=f.hidden_field :user_id%>
+        <%=f.label :date%>
+        <%=f.date_field :date%>
+        <%=f.label :time%>
+        <%=f.time_field :time%>
+        <%=f.label :number_of_people%>
+        <%=f.number_field :number_of_people%>
+        <%=f.hidden_field :restaurant_id%>
+        <%=f.submit%>
+        <%end%>
+    </div>
+</div>

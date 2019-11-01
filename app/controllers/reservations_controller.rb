@@ -20,9 +20,20 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to user_reservation_path(current_user,@reservation)
     else
-      # raise params.inspect
+      render 'new'
     end
   end
+
+  def edit
+    @reservation=Reservation.find(params[:id])
+  end
+
+  def update
+  @reservation=Reservation.find(params[:id])
+  @reservation.update(date: params[:reservation][:date], time: params[:reservation][:time], number_of_people: params[:reservation][:number_of_people])
+  redirect_to reservation_path(@reservation)
+  end
+
 
   private
 
