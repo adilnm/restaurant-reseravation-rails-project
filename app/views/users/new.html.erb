@@ -4,6 +4,15 @@
             <span class="login100-form-title p-b-49">
   						  SIGN UP
   					</span>
+            <%if @errors%>
+            <div class="alert alert-danger">
+                <ul>
+                  <%@errors.each do |error|%>
+                  <li><%=error%></li>
+                  <%end%>
+                </ul>
+            </div>
+            <%end%>
             <%=form_for @user do |f| %>
             <div class="wrap-input100 validate-input m-b-23">
                 <%=f.label :name, :class=>"label-input100"%>
