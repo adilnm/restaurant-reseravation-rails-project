@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
       session[:user_id]=user.id
       redirect_to root_path
     else
-      render 'new'
+      flash[:errors] = "You have entered an invalid username and/or password"
+      redirect_to login_path
     end
   end
 

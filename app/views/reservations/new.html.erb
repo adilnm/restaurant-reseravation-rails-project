@@ -1,12 +1,27 @@
-<%=form_for @reservation do |f|%>
-<%=f.hidden_field :user_id%>
-<%=f.label :date%>
-<%=f.date_field :date%>
-<%=f.label :time%>
-<%=f.time_field :time%>
-<%=f.label :number_of_people%>
-<%=f.number_field :number_of_people%>
-<%=f.label :restaurant%>
-<%=f.collection_select(:restaurant_id, Restaurant.all, :id, :name)%>
-<%=f.submit%>
-<%end%>
+<div class="limiter">
+    <div class="container-login100" style="background-image: url('/images/reservations.jpg');">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+          <%if @errors%>
+          <div class="alert alert-danger">
+              <ul>
+                <%@errors.each do |error|%>
+                <li><%=error%></li>
+                <%end%>
+              </ul>
+          </div>
+          <%end%>
+          <%=form_for @reservation do |f|%>
+          <%=f.hidden_field :user_id%>
+          <%=f.label :date%>
+          <%=f.date_field :date%>
+          <%=f.label :time%>
+          <%=f.time_field :time%>
+          <%=f.label :number_of_people%>
+          <%=f.number_field :number_of_people%>
+          <%=f.label :restaurant%>
+          <%=f.collection_select(:restaurant_id, current_user.restaurants, :id, :name)%>
+          <%=f.submit%>
+          <%end%>
+        </div>
+      </div>
+</div>

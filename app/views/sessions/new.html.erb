@@ -4,6 +4,10 @@
             <span class="login100-form-title p-b-49">
   						  LOGIN
   					</span>
+            <% if flash[:errors] %>
+              <div class="alert alert-danger"><%= flash[:errors] %></div>
+            <% end %>
+
             <%=form_for @user, url: sessions_path do |f|%>
                 <div class="wrap-input100 validate-input m-b-23">
                     <%=f.label :name, :class=>"label-input100"%>

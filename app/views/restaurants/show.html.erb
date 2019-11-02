@@ -21,7 +21,15 @@
         <h2>Rating: <%=@restaurant.rating%>/5</h2>
 
         <h1>Make a reservation</h1>
-
+				<%if @errors%>
+				<div class="alert alert-danger">
+						<ul>
+							<%@errors.each do |error|%>
+							<li><%=error%></li>
+							<%end%>
+						</ul>
+				</div>
+				<%end%>
         <%=form_for @reservation do |f|%>
         <%=f.hidden_field :user_id%>
         <%=f.label :date%>

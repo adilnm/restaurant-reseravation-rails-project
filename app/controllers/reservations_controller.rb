@@ -17,9 +17,10 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation=Reservation.new(reservation_params)
-    if @reservation.save
+    if @reservation.valid? && @reservation.save
       redirect_to user_reservation_path(current_user,@reservation)
     else
+      @errors=@reservation.errors.messages.map{|k,v|"#{k} #{v.first}"}
       render 'new'
     end
   end
