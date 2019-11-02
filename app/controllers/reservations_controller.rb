@@ -29,9 +29,14 @@ class ReservationsController < ApplicationController
   end
 
   def update
-  @reservation=Reservation.find(params[:id])
-  @reservation.update(date: params[:reservation][:date], time: params[:reservation][:time], number_of_people: params[:reservation][:number_of_people])
-  redirect_to reservation_path(@reservation)
+    @reservation=Reservation.find(params[:id])
+    @reservation.update(date: params[:reservation][:date], time: params[:reservation][:time], number_of_people: params[:reservation][:number_of_people])
+    redirect_to reservation_path(@reservation)
+  end
+
+  def destroy
+    Reservation.find(params[:id]).destroy
+    redirect_to reservations_url
   end
 
 

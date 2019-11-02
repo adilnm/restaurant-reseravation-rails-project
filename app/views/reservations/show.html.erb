@@ -1,3 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Mediplus</a>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="<%=reservations_path%>" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="<%=reservations_path%>" class="nav-link"><span>My reservations</span></a></li>
+	          <li class="nav-item"><a href="<%=location_path%>" class="nav-link"><span>Review</span></a></li>
+	          <li class="nav-item"><a href="<%=logout_path%>" class="nav-link"><span>Sign Out</span></a></li>
+	          <li class="nav-item cta mr-md-2"><a href="<%=location_path%>" class="nav-link">Make a Reservation</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
 <div class="container-login100" style="background-image: url('/images/reservations.jpg');">
     <div class="restau p-l-55 p-r-55 p-t-65 p-b-54">
       <a href="/restaurants/<%=@reservation.restaurant.id%>"><h1 style="text-align: center;"><b><%=@reservation.restaurant.name%> Reservation</b></h1></a>
@@ -5,5 +20,8 @@
       <h2><b>Time:</b><%=@reservation.time.strftime('%H:%M%p')%></h2>
       <h2><b>Address:</b> <%=@reservation.restaurant.address%></h2>
       <h2><b>Number of people: </b><%=@reservation.number_of_people%></h2>
+      <button class="btn btn-outline-primary"><a href=<%=edit_reservation_path(@reservation)%>>EDIT RESERVATION</a></button>
+      <%= link_to "DELETE RESERVATION", @reservation, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+
     </div>
 </div>

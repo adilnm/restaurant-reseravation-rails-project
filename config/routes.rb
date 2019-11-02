@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :reviews
+  resources :reviews, only:[:new, :create]
   resources :users do resources :reservations
   end
   resources :reservations
-  resources :restaurants do resources :reviews
+  resources :restaurants do resources :reviews, only:[:new, :create]
   end
 
   root 'reservations#index'

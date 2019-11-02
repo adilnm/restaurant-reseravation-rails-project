@@ -1,4 +1,19 @@
-<div style="background-image: url('images/location.jpg');">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Mediplus</a>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav nav ml-auto">
+	          <li class="nav-item"><a href="<%=reservations_path%>" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="<%=reservations_path%>" class="nav-link"><span>My reservations</span></a></li>
+	          <li class="nav-item"><a href="<%=location_path%>" class="nav-link"><span>Review</span></a></li>
+	          <li class="nav-item"><a href="<%=logout_path%>" class="nav-link"><span>Sign Out</span></a></li>
+	          <li class="nav-item cta mr-md-2"><a href="<%=location_path%>" class="nav-link">Make a Reservation</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    
+<div class="reservations-container" style="background-image: url('/images/location.jpg');">
   <div class="p-l-55 p-r-55 p-t-65 p-b-54">
     <%=form_tag('/locations')%>
     <div class="city validate-input m-b-23">
