@@ -19,7 +19,7 @@ class ReservationsController < ApplicationController
     @reservation=Reservation.new(reservation_params)
     if @reservation.valid? && @reservation.save
       redirect_to user_reservation_path(current_user,@reservation)
-    elsif @reservation.valid? && @restaurant=Restaurant.find(params[:reservation][:restaurant_id])
+    elsif @reservation.restaurant_id
       # if we are making a reservation through api data
       @restaurant=Restaurant.find(params[:reservation][:restaurant_id])
       @reviews=@restaurant.reviews
