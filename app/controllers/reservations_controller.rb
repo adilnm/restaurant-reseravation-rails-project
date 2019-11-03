@@ -19,12 +19,16 @@ class ReservationsController < ApplicationController
     @reservation=Reservation.new(reservation_params)
     if @reservation.valid? && @reservation.save
       redirect_to user_reservation_path(current_user,@reservation)
-    elsif params[:reservation][:restaurant_id]
+    elsif @reservation.valid? && @restaurant=Restaurant.find(params[:reservation][:restaurant_id])
       # if we are making a reservation through api data
       @restaurant=Restaurant.find(params[:reservation][:restaurant_id])
       @reviews=@restaurant.reviews
       @errors=@reservation.errors.messages.map{|k,v|"#{k} #{v.first}"}
       render 'restaurants/show'
+
+    else
+      @errors=@reservation.errors.messages.map{|k,v|"#{k} #{v.first}"}
+      render 'new'
     end
   end
 
@@ -47,7 +51,7 @@ class ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:date, :time, :number_of_people, :user_id, :restaurant_id)
+    params.require(:reservation).permit(:date, :time, :number_of_people, :user_id, :restaurant_id, restaurant_attributes:[:name, :address, :cuisine, :phone_number])
   end
 
 end

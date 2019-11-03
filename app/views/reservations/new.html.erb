@@ -32,8 +32,17 @@
           <%=f.label :time%>
           <%=f.time_field :time%>
           <%=f.label :number_of_people%>
-          <%=f.number_field :number_of_people%>
-          <%=f.label :restaurant%>
+          <%=f.number_field :number_of_people%><br>
+					<%=f.fields_for :restaurant, @reservation.build_restaurant do |r| %>
+					<%=r.label :name, 'Restaurant Name'%>
+					<%=r.text_field :name%><br>
+					<%=r.label :cuisine%>
+					<%=r.text_field :cuisine%><br>
+					<%=r.label :address%>
+					<%=r.text_field :address%><br>
+					<%=r.label :phone_number%>
+					<%=r.text_field :phone_number%><br>
+					<%end%>
           <%=f.submit%>
           <%end%>
         </div>
