@@ -25,6 +25,7 @@ class RestaurantsController < ApplicationController
       zomato_restau_url="https://developers.zomato.com/api/v2.1/search?entity_id=#{@city_id}&entity_type=city&cuisines=#{@cuisine_id}"
       @restau=HTTParty.get(zomato_restau_url, headers: {"Accept" => "application/JSON", "user-key" => @api_key})
       render 'location'
+
     elsif params[:restau_id] && !params[:restau_id].empty?
 
       restau_url="https://developers.zomato.com/api/v2.1/search?entity_id=#{params[:cityid]}&entity_type=city&cuisines=#{params[:cuisineid]}"

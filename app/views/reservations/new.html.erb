@@ -34,7 +34,6 @@
           <%=f.label :number_of_people%>
           <%=f.number_field :number_of_people%>
           <%=f.label :restaurant%>
-          <%=f.collection_select(:restaurant_id, current_user.restaurants, :id, :name)%>
           <%=f.submit%>
           <%end%>
         </div>

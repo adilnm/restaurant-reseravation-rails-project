@@ -17,7 +17,7 @@
   <%@reservations.each_with_index do |val,index|%>
             <div class="col-sm-4 " >
                 <div class="reservation-box">
-                    <a href="/reservations/<%=val.restaurant.id%>"><h2><b><%=index+1%></b></h2></a>
+                    <a href="/reservations/<%=val.id%>"><h2><b><%=index+1%></b></h2></a>
                     <h3><b>Restaurant: </b><%=val.restaurant.name%></h3>
                     <h3><b>Date: </b><%=val.date.strftime('%a, %b %e %Y')%></h3>
                     <h3><b>Time: </b><%=val.time.strftime('%H:%M%p')%></h3>
