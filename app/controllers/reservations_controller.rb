@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @reservation=Reservation.new(user_id:params[:user_id])
+    @reservation=Reservation.new(user_id:current_user.id)
   end
 
   def create

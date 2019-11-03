@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/auth/facebook/callback' => 'sessions#create'
   resources :reviews, only:[:new, :create]
   resources :users do resources :reservations
   end
