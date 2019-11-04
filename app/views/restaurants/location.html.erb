@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Mediplus</a>
+	      <a class="navbar-brand" href="/">RestauReservation</a>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="<%=reservations_path%>" class="nav-link"><span>Home</span></a></li>
@@ -17,7 +17,9 @@
   <div class="p-l-55 p-r-55 p-t-65 p-b-54">
     <%=form_tag('/locations')%>
     <div class="city validate-input m-b-23">
-    <%=label_tag 'City'%>
+    <%=label_tag 'City' do %>
+   <h3>Type your restaurant city:</h3>
+<%end%>
     <%=text_field_tag 'city',"", class: "city_box", placeholder: "Type a city"%>
     </div>
     <div class="wrap-login100-form-btn">
@@ -36,10 +38,14 @@
       <%=hidden_field_tag 'citi_id', @city_id%>
 
     <%elsif (@restau)%>
-    <h3>Please select a restaurant:</h3>
-      <%=select_tag 'restau_id', options_for_select(@restau['restaurants'].collect{|r| [r['restaurant']['name'],r['restaurant']['id']]})%>
+    	<h3>Please select a restaurant:</h3>
+      <%=select_tag 'restau_id', options_for_select(@restau['restaurants'].collect{|r| [r['restaurant']['name'],r['restaurant']['id']]})%><br><br>
       <%=hidden_field_tag 'cityid', @city_id%>
       <%=hidden_field_tag 'cuisineid', @cuisine_id%>
+
     <%end%>
+		<%=link_to new_reservation_path do %>
+		<h5 style="color:purple;">Can't find your restaurant?</h5>
+		<% end %>
     </div>
 </div>

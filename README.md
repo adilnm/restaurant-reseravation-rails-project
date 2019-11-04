@@ -1,24 +1,15 @@
-# README
+# restaurant-reservation-rails-project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This web application helps people search for different types of restaurants in the world and also make reservations and reviews.  
 
-Things you may want to cover:
+## Installation  and Instructions
 
-* Ruby version
+Fork/Clone this repo, and then navigate to the repo directory in your terminal.
 
-* System dependencies
+Then, run bundle install to install all gem dependencies.
 
-* Configuration
+Run all rake migrations with rake db:migrate
 
-* Database creation
+Finally, start up a server using rails s and navigate to the provided url
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Proceed to sign up using a username, email and password or through Facebook.

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users do resources :reservations
   end
   resources :reservations
-  resources :restaurants do resources :reviews, only:[:new, :create]
+  resources :restaurants, only:[:show] do resources :reviews, only:[:new, :create]
   end
 
   root 'reservations#index'
