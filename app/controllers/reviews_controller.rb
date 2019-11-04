@@ -3,8 +3,10 @@ class ReviewsController < ApplicationController
   before_action :require_login
 
   def index
+    binding.pry
     if params[:restaurant_id]
-      @reviews=Restaurant.find(params[:restaurant_id]).reviews
+      @reviews=Restaurant.find(params[:restaurant_id]).reviews.non_empty_reviews
+      binding.pry
     end
   end
 
