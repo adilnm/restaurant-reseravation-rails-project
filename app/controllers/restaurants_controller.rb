@@ -65,6 +65,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant=Restaurant.find(params[:id])
     @reservation=Reservation.new(user_id:current_user.id, restaurant_id:@restaurant.id)
+    # use of scope method
     @reviews=@restaurant.reviews.non_empty_reviews
   end
 

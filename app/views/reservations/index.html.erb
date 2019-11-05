@@ -14,6 +14,9 @@
 	  </nav>
 
 <div class="reservations-container" style="background-image: url('/images/reservations.jpg');">
+	<%if @reservations.empty?%>
+		<h1><b>You Have no reservations at this time</b></h1>
+	<%else%>
   <%@reservations.each_with_index do |val,index|%>
             <div class="col-sm-4 " >
                 <div class="reservation-box">
@@ -25,4 +28,5 @@
                 </div>
             </div>
               <%end%>
+							<%end%>
 </div>

@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
           # (validate: false) is used to bypass validations when login in through facebook
           session[:user_id]=user.id
           redirect_to root_path
-        
+
       end
     else
       user=User.find_by(:name=>params[:user][:name])

@@ -3,14 +3,13 @@ class ReviewsController < ApplicationController
   before_action :require_login
 
   def index
-    binding.pry
     if params[:restaurant_id]
       @reviews=Restaurant.find(params[:restaurant_id]).reviews.non_empty_reviews
-      binding.pry
     end
   end
 
   def new
+    # use nested routes to get restaurant_id
     @review=Review.new(user_id:current_user.id,restaurant_id:params[:restaurant_id])
   end
 
@@ -21,6 +20,7 @@ class ReviewsController < ApplicationController
       redirect_to restaurant_path(@review.restaurant_id)
     end
   end
+
 
   private
 

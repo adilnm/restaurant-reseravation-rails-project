@@ -18,19 +18,20 @@
     <%=form_tag('/locations')%>
     <div class="city validate-input m-b-23">
     <%=label_tag 'City' do %>
-   <h3>Type your restaurant city:</h3>
-<%end%>
+   		<h3>Type your restaurant city:</h3>
+	 	<%end%>
     <%=text_field_tag 'city',"", class: "city_box", placeholder: "Type a city"%>
     </div>
     <div class="wrap-login100-form-btn">
       <div class="login100-form-bgbtn"></div>
-    <button class="login100-form-btn">
-    <%=submit_tag 'Search',class: 'btn'%>
-    </button>
+	    <button class="login100-form-btn">
+	    <%=submit_tag 'Search',class: 'btn'%>
+	    </button>
     </div>
     <br>
     <%if @response%>
       <h3>Please select a city:</h3>
+			 <%# display a drop down menu of the available cities %>
       <%=select_tag 'city_id', options_for_select(@response['location_suggestions'].collect{|r| [r['name'],r['id']]})%>
     <%elsif (@cuisine)%>
     <h3>Please select a type of cuisine:</h3>
